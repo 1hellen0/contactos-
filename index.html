@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Contactos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f7fb;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 20px;
+        }
+
+        form input, form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        form button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .search {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>Gestor de Contactos</h1>
+                <p>Administra tus personas de forma simple.</p>
+            </div>
+            <button>+ Nuevo contacto</button>
+        </header>
+
+        <div class="grid">
+            <section class="panel">
+                <h2>Agregar contacto</h2>
+                <form>
+                    <input type="text" placeholder="Nombre completo">
+                    <input type="email" placeholder="Correo electrónico">
+                    <input type="tel" placeholder="Teléfono">
+                    <input type="text" placeholder="Empresa">
+                    <button type="submit">Guardar</button>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Contactos</h2>
+                <input class="search" type="text" placeholder="Buscar contacto...">
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <div>
+                            <strong>María López</strong><br>
+                            <small>maria@email.com</small>
+                        </div>
+                        <span>Editar</span>
+                    </li>
+                    <li class="contact-item">
+                        <div>
+                            <strong>José Pérez</strong><br>
+                            <small>jose@email.com</small>
+                        </div>
+                        <span>Editar</span>
+                    </li>
+                    <li class="contact-item">
+                        <div>
+                            <strong>Ana García</strong><br>
+                            <small>ana@email.com</small>
+                        </div>
+                        <span>Editar</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
