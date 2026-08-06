@@ -24,7 +24,10 @@ function renderContacts(items) {
                 <strong>${contact.name}</strong><br>
                 <small>${contact.email}</small>
             </div>
-            <span>Editar</span>
+            <div>
+                <button type="button" class="action-btn">Editar</button>
+                <button type="button" class="action-btn delete-btn">Eliminar</button>
+            </div>
         `;
         contactList.appendChild(li);
     });
