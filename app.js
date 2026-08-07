@@ -1,13 +1,11 @@
 const form = document.querySelector('form');
 const contactList = document.querySelector('.contact-list');
 const searchInput = document.querySelector('.search');
-const formButton = form.querySelector('button[type="submit"]');
-let editIndex = null;
 
 const contacts = [
-    { name: 'María López', email: 'maria@email.com', phone: '555-1234', company: 'Tech' },
-    { name: 'José Pérez', email: 'jose@email.com', phone: '555-5678', company: 'Design' },
-    { name: 'Ana García', email: 'ana@email.com', phone: '555-9012', company: 'Marketing' }
+    { name: 'María López', email: 'maria@email.com', phone: '555-1234' },
+    { name: 'José Pérez', email: 'jose@email.com', phone: '555-5678' },
+    { name: 'Ana García', email: 'ana@email.com', phone: '555-9012' }
 ];
 
 function renderContacts(items) {
@@ -168,8 +166,7 @@ form.addEventListener('submit', (event) => {
     const updatedContact = {
         name: inputs[0].value.trim(),
         email: inputs[1].value.trim(),
-        phone: inputs[2].value.trim(),
-        company: inputs[3].value.trim()
+        phone: inputs[2].value.trim()
     };
 
     if (!updatedContact.name || !updatedContact.email) {
@@ -177,13 +174,8 @@ form.addEventListener('submit', (event) => {
         return;
     }
 
-    if (editIndex !== null) {
-        contacts[editIndex] = updatedContact;
-        resetFormState();
-    } else {
-        contacts.push(updatedContact);
-    }
-
+    contacts.push(updatedContact);
+    form.reset();
     renderContacts(contacts);
 });
 
