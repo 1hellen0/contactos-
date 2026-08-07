@@ -67,6 +67,32 @@
         </div>
     </div>
 
+    <div class="confirm-overlay hidden" id="editOverlay">
+        <div class="confirm-box">
+            <p id="editTitle">Editar contacto</p>
+            <label class="modal-label">Nombre
+                <input type="text" id="editName" placeholder="Nombre completo">
+            </label>
+            <label class="modal-label">Teléfono
+                <input type="tel" id="editPhone" placeholder="Número telefónico">
+            </label>
+            <div class="confirm-actions">
+                <button type="button" class="action-btn" id="editCancel">Cancelar</button>
+                <button type="button" class="action-btn delete-btn" id="editAccept">Guardar</button>
+            </div>
+        </div>
+    </div>
+git
+    <div class="confirm-overlay hidden" id="editConfirmOverlay">
+        <div class="confirm-box">
+            <p id="editConfirmMessage">¿Confirmar edición?</p>
+            <div class="confirm-actions">
+                <button type="button" class="action-btn" id="editConfirmCancel">Cancelar</button>
+                <button type="button" class="action-btn delete-btn" id="editConfirmAccept">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>

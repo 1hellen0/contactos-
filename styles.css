@@ -98,6 +98,23 @@ form button {
     color: #111;
 }
 
+.modal-label {
+    display: block;
+    text-align: left;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.modal-label input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
 .confirm-actions {
     display: flex;
     justify-content: center;
