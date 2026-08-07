@@ -5,7 +5,10 @@ const searchInput = document.querySelector('.search');
 const contacts = [
     { name: 'María López', email: 'maria@email.com', phone: '555-1234' },
     { name: 'José Pérez', email: 'jose@email.com', phone: '555-5678' },
-    { name: 'Ana García', email: 'ana@email.com', phone: '555-9012' }
+    { name: 'Ana García', email: 'ana@email.com', phone: '555-9012' },
+    { name: 'Carlos Méndez', email: 'carlos@email.com', phone: '555-3456' },
+    { name: 'Lucía Torres', email: 'lucia@email.com', phone: '555-7890' },
+    { name: 'Sofía Ruiz', email: '', phone: '555-2345' }
 ];
 
 function renderContacts(items) {
@@ -21,11 +24,12 @@ function renderContacts(items) {
         li.className = 'contact-item';
         li.dataset.index = contacts.indexOf(contact);
         li.innerHTML = `
-            <div>
-                <strong>${contact.name}</strong><br>
-                <small>${contact.phone}</small>
+            <div class="contact-details">
+                <div class="contact-name">${contact.name}</div>
+                ${contact.email ? `<div class="contact-email">${contact.email}</div>` : '<div class="contact-email optional">Sin correo</div>'}
+                <div class="contact-phone">${contact.phone || 'Sin teléfono'}</div>
             </div>
-            <div>
+            <div class="contact-actions">
                 <button type="button" class="action-btn edit-btn">Editar</button>
                 <button type="button" class="action-btn delete-btn">Eliminar</button>
             </div>
@@ -169,8 +173,8 @@ form.addEventListener('submit', (event) => {
         phone: inputs[2].value.trim()
     };
 
-    if (!updatedContact.name || !updatedContact.email) {
-        alert('Por favor completa al menos el nombre y el correo.');
+    if (!updatedContact.name) {
+        alert('Por favor completa al menos el nombre.');
         return;
     }
 

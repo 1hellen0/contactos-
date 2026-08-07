@@ -50,23 +50,53 @@ form button {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: grid;
+    gap: 14px;
 }
 
 .contact-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
+    padding: 18px 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+.contact-details {
+    display: grid;
+    gap: 6px;
+}
+
+.contact-name {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.contact-email,
+.contact-phone {
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+.contact-email.optional {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 8px;
 }
 
 .action-btn {
-    margin-left: 8px;
-    padding: 6px 10px;
+    padding: 8px 12px;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
     background: #e5e7eb;
+    transition: background 0.2s ease;
 }
 
 .confirm-overlay {
