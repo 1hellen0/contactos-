@@ -22,7 +22,7 @@ function renderContacts(items) {
         li.innerHTML = `
             <div>
                 <strong>${contact.name}</strong><br>
-                <small>${contact.email}</small>
+                <small>${contact.phone}</small>
             </div>
             <div>
                 <button type="button" class="action-btn">Editar</button>
@@ -37,7 +37,7 @@ function filterContacts() {
     const query = searchInput.value.toLowerCase();
     const filtered = contacts.filter(contact =>
         contact.name.toLowerCase().includes(query) ||
-        contact.email.toLowerCase().includes(query)
+        contact.phone.toLowerCase().includes(query)
     );
     renderContacts(filtered);
 }
