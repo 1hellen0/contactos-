@@ -52,7 +52,7 @@ function filterContacts() {
 function showDeleteConfirm(index) {
     pendingDeleteIndex = index;
     const contactName = contacts[index]?.name || 'este contacto';
-    confirmMessage.textContent = `¿Eliminar ${contactName}? Esta acción no se puede deshacer.`;
+    confirmMessage.textContent = `estas seguro que quieres eliminar a ${contactName}`;
     confirmOverlay.classList.remove('hidden');
 }
 
