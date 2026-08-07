@@ -19,6 +19,7 @@ function renderContacts(items) {
     items.forEach(contact => {
         const li = document.createElement('li');
         li.className = 'contact-item';
+        li.dataset.index = contacts.indexOf(contact);
         li.innerHTML = `
             <div>
                 <strong>${contact.name}</strong><br>
@@ -33,6 +34,12 @@ function renderContacts(items) {
     });
 }
 
+const confirmOverlay = document.getElementById('confirmOverlay');
+const confirmMessage = document.getElementById('confirmMessage');
+const confirmAccept = document.getElementById('confirmAccept');
+const confirmCancel = document.getElementById('confirmCancel');
+let pendingDeleteIndex = null;
+
 function filterContacts() {
     const query = searchInput.value.toLowerCase();
     const filtered = contacts.filter(contact =>
@@ -41,6 +48,40 @@ function filterContacts() {
     );
     renderContacts(filtered);
 }
+
+function showDeleteConfirm(index) {
+    pendingDeleteIndex = index;
+    const contactName = contacts[index]?.name || 'este contacto';
+    confirmMessage.textContent = `¿Eliminar ${contactName}? Esta acción no se puede deshacer.`;
+    confirmOverlay.classList.remove('hidden');
+}
+
+function hideDeleteConfirm() {
+    pendingDeleteIndex = null;
+    confirmOverlay.classList.add('hidden');
+}
+
+contactList.addEventListener('click', (event) => {
+    const deleteButton = event.target.closest('.delete-btn');
+    if (!deleteButton) return;
+
+    const contactItem = deleteButton.closest('.contact-item');
+    if (!contactItem) return;
+
+    const index = Number(contactItem.dataset.index);
+    if (Number.isNaN(index)) return;
+
+    showDeleteConfirm(index);
+});
+
+confirmAccept.addEventListener('click', () => {
+    if (pendingDeleteIndex === null) return;
+    contacts.splice(pendingDeleteIndex, 1);
+    hideDeleteConfirm();
+    filterContacts();
+});
+
+confirmCancel.addEventListener('click', hideDeleteConfirm);
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();

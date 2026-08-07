@@ -69,6 +69,51 @@ form button {
     background: #e5e7eb;
 }
 
+.confirm-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+}
+
+.confirm-overlay.hidden {
+    display: none;
+}
+
+.confirm-box {
+    width: min(92%, 380px);
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    text-align: center;
+}
+
+.confirm-box p {
+    margin: 0 0 20px;
+    font-size: 1rem;
+    color: #111;
+}
+
+.confirm-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.confirm-actions .action-btn {
+    flex: 1;
+    margin-left: 0;
+}
+
+.confirm-actions .delete-btn {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
 .delete-btn {
     background: #fee2e2;
     color: #b91c1c;
